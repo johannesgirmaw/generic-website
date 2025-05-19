@@ -2,14 +2,13 @@ import Modal from "~/components/common/Modal/Modal";
 import VideoAdd from "~/components/Video/add";
 import { createVideo, uploadVideo } from "~/data/video.server";
 
-
 const add = () => {
   return (
     <Modal>
-        <VideoAdd/>
-    </Modal>      
+      <VideoAdd />
+    </Modal>
   );
-}
+};
 export default add;
 
 import { redirect, type ActionFunction } from "@remix-run/node";
@@ -29,11 +28,11 @@ export const action: ActionFunction = async ({ request }) => {
   }
   const thumbnailUrl = await uploadVideo(thumbnailFile);
   data.thumbnail = thumbnailUrl;
-  const returnedData = await createVideo({
+  await createVideo({
     name: data.name,
     description: data.description,
     url: videoUrl,
-    thumbnail: thumbnailUrl
+    thumbnail: thumbnailUrl,
   });
   return redirect("..");
-}
+};
