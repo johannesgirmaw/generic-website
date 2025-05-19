@@ -1,6 +1,5 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
 }
 
 datasource db {
@@ -8,11 +7,16 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Fields {
-  id        Int      @id @default(autoincrement())
-  name      String   @unique
-  type      String
-  required  Boolean
+model Video {
+   id   Int    @id @default(autoincrement())
+   name String
+  url  String @default("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+  thumbnail String @default("https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg")
+  description String  @default("This is a default description")
+  duration Int   @default(0)
+  views Int  @default(0)
+  likes Int @default(0)
+  dislikes Int @default(0)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

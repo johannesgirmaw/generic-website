@@ -7,7 +7,7 @@
 // } from "@remix-run/react";
 // import type { LinksFunction } from "@remix-run/node";
 
-// import "./tailwind.css";
+import "./tailwind.css";
 
 // export const links: LinksFunction = () => [
 //   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -52,6 +52,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import NavBar from "~/components/common/NavBar/LeftSideBar";
 
 export default function App() {
   return (
@@ -63,6 +64,7 @@ export default function App() {
         <Links />
       </head>
       <body>
+        <NavBar/>
         <Outlet />
         <ScrollRestoration />
         <Scripts />

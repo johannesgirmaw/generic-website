@@ -1,17 +1,19 @@
 import { json, useLoaderData } from "@remix-run/react";
 // import db from "../../utils/db.server";
 import { PrismaClient } from "@prisma/client";
-const db = new PrismaClient();
-export const loader = async () => {
-  console.log("Fetching fields----------", db.fields);
-  //   const fields = await db.fields.findMany();
-  // console.log("Fetched fields", fields);
-  return json({
-    todos: [],
-  });
-};
 
 export default function Fields() {
-  const data = useLoaderData<typeof loader>();
-  return JSON.stringify(data);
+ 
+  return <main className="container mx-auto px-4 py-8">
+    <h1 className="text-2xl font-bold">Fields</h1>
+    <div className="mt-4">
+      <p className="text-gray-600">This is a placeholder for the fields page.</p>
+    </div>
+  
+  </main>;
+}
+
+
+export async function loader() {
+  return null
 }
